@@ -27,5 +27,5 @@
 ### Hardware
 * Systemet skal kunne køres på maskinerne i DTU’s databarer
 
-###Software 
+### Software 
 * Systemet skal implementes på Java version 8
