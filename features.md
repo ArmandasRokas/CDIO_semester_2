@@ -1,6 +1,6 @@
-#Kravliste
+# Kravliste
 
-##Funktional
+## Funktional
 
 ### Must have
 
