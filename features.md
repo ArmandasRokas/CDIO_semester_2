@@ -22,5 +22,10 @@
 
 
 
-##Supplerende specifikationer
+## Supplerende specifikationer
 
+### Hardware
+* Systemet skal kunne køres på maskinerne i DTU’s databarer
+
+###Software 
+* Systemet skal implementes på Java version 8
