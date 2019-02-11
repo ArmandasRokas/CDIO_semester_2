@@ -1,4 +1,4 @@
-package PL;
+package boundary;
 
 public class TUI {
 }

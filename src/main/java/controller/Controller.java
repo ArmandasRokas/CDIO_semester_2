@@ -1,7 +1,8 @@
 package controller;
 
-import BLL.IFunctionality;
-import PL.IUI;
+
+import boundary.IUI;
+import functionality.IFunctionality;
 
 public class Controller {
 

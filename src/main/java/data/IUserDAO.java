@@ -1,4 +1,4 @@
-package DAL; // Data access layer
+package data; // Data access layer
 
 import java.util.List;
 
