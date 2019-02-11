@@ -12,7 +12,7 @@ public interface IUserDAO {
     void updateUser(UserDTO user) throws DALException;
     void deleteUser(int userId) throws DALException;
 
-    public class DALException extends Exception {
+    class DALException extends Exception {
 
         /**
          *
@@ -26,7 +26,5 @@ public interface IUserDAO {
         public DALException(String msg) {
             super(msg);
         }
-
     }
-
 }
