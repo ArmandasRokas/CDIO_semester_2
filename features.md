@@ -6,7 +6,7 @@
 
 | Krav Id | Beskrivelse | Status  | 
 | ------------- | ----|------------- |
-| K1 | Systemet skal opret bruger | ikke begyndt  |
+| K1 | YO Systemet skal opret bruger | ikke begyndt  |
 | K2 | Systemet skal vis brugere | ikke begyndt |
 | K3 | Systemet skal update bruger | ikke begyndt |
 | K4 | Systemet skal slet bruger | ikke begyndt |
