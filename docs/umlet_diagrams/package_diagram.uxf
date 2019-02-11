@@ -59,7 +59,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
+      <x>360</x>
       <y>240</y>
       <w>100</w>
       <h>30</h>
@@ -179,5 +179,16 @@
     <panel_attributes>lt=.&gt;
 </panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>240</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>IUserController</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
