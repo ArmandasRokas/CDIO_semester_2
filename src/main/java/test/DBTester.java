@@ -1,7 +1,7 @@
 //package test;
 //
-//import DAL.IUserDAO;
-//import DAL.UserDTO;
+//import DataAccess.IUserDAO;
+//import DataAccess.UserDTO;
 //
 //public class DBTester {
 //    //TODO refactor as JUnit test???
