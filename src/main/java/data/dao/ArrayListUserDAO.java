@@ -1,13 +1,15 @@
-package data;
+package data.dao;
+
+import data.dto.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO implements IUserDAO {
+public class ArrayListUserDAO implements IUserDAO {
 
-    List<UserDTO> users;
+    public static List<UserDTO> users;
 
-    public UserDAO(){
+    public ArrayListUserDAO(){
         users = new ArrayList<UserDTO>();
         users.add(new UserDTO());
         users.add(new UserDTO());

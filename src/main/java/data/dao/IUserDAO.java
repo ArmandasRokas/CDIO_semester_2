@@ -1,4 +1,6 @@
-package data; // Data access layer
+package data.dao; // Data access layer
+
+import data.dto.UserDTO;
 
 import java.util.List;
 
