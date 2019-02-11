@@ -1,6 +1,4 @@
-package model;
-
-import model.UserDTO;
+package DAL;
 
 import java.util.List;
 
