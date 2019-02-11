@@ -1,6 +1,6 @@
-package dao;
+package model;
 
-import dto.UserDTO;
+import model.UserDTO;
 
 import java.util.List;
 

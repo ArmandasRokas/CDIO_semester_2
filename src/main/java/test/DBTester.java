@@ -1,7 +1,7 @@
 //package test;
 //
-//import dao.IUserDAO;
-//import dto.UserDTO;
+//import model.IUserDAO;
+//import model.UserDTO;
 //
 //public class DBTester {
 //    //TODO refactor as JUnit test???
