@@ -1,13 +1,14 @@
 package view;
 
+import businesslogic.IUserController;
+
 public class TUI {
 
-    private IInitialsGenerator initialsGenerator;
-    private IPasswordGenerator passwordGenerator;
 
-    public TUI(IInitialsGenerator initialsGenerator, IPasswordGenerator passwordGenerator) {
-        this.initialsGenerator = initialsGenerator;
-        this.passwordGenerator = passwordGenerator;
+    IUserController userController;
+
+    public TUI(IUserController userController) {
+        this.userController = userController;
     }
 
 
