@@ -3,11 +3,10 @@ package DataAccess; // Data access layer
 import java.util.List;
 
 public interface IUserDAO {
-
-    List<String> getNames();
-    UserDTO getUser(int userId);
-    List<UserDTO> getUserList();
-    void createUser(UserDTO user);
-    void updateUser(UserDTO user);
-    void deleteUser(int userId);
+    public int randomInt(int min, int max);
+    public String getUserByIdToString(int id);
+    public List<String> getAllUsersToString();
+    public void createUser(String name, int birthYear);
+    public void deleteUser(int id);
+    public void updateUser(int id, String name, int birthYear);
 }

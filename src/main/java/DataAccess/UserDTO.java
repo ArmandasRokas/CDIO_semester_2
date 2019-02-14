@@ -3,99 +3,74 @@ package DataAccess;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class UserDTO implements Serializable, IUserDAO {
+    private class User {
+        int id;
+        String name;
+        int birthYear;
 
-    private static final long serialVersionUID = 4545864587995944260L;
-    private int	userId;
-    private String userName;
-    private String ini;
-    private List<String> roles;
-    //TODO Add relevant fields
+        User(int id, String name, int birtyYear) {
+            this.id = id;
+            this.name = name;
+            this.birthYear = birtyYear;
+        }
 
-//    private List<Ingredient> ingredients;
-//
-//    public DemoData() {
-//        ingredients = new ArrayList<>();
-//        ingredients.add(new Ingredient(1, "flormelis", 60));
-//        ingredients.add(new Ingredient(2, "mel", 240));
-//        ingredients.add(new Ingredient(3, "sm�r", 185));
-//    }
-    private List<String> userList;
+        @Override
+        public String toString() {
+            return "id: " + id + "\n" +
+                    "name: " + name + "\n" +
+                    "id: " + birthYear + "\n";
+        }
+    }
+
+    private List<User> userNamesList;
 
     public UserDTO() {
-        userList = new ArrayList<String>();
-        userList.add("Casper");
-        userList.add("Armandas");
-        userList.add("Emil");
-        userList.add("Tobias");
-        userList.add("David");
+        userNamesList = new ArrayList<User>();
+        User u = new User(randomInt(1, 10), "Casper", randomInt(1950, 2005));
+        userNamesList.add(u);
     }
 
-    public List<String> getNames(){
-        return userList;
+    public int randomInt(int min, int max) {
+        return new Random().nextInt((max - min) + 1) + min;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-    public String getIni() {
-        return ini;
-    }
-    public void setIni(String ini) {
-        this.ini = ini;
+    public void createUser(String name, int birthYear) {
+        userNamesList.add(new User(randomInt(1, 100), name, birthYear));
     }
 
-    public List<String> getRoles() {
-        return roles;
-    }
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
+    public void deleteUser(int id) {
+        User u = getUserById(id);
+        userNamesList.remove(u);
     }
 
-    public void addRole(String role){
-        this.roles.add(role);
-    }
-    /**
-     *
-     * @param role
-     * @return true if role existed, false if not
-     */
-    public boolean removeRole(String role){
-        return this.roles.remove(role);
+    public void updateUser(int id, String name, int birthYear){
+        User u = getUserById(id);
+        u.name = name;
+        u.birthYear = birthYear;
     }
 
-    @Override
-    public String toString() {
-        return "UserDTO [userId=" + userId + ", userName=" + userName + ", ini=" + ini + ", roles=" + roles + "]";
+    public List<String> getAllUsersToString() {
+        List<String> userStrings = new ArrayList<>();
+        for (User u : userNamesList)
+            userStrings.add(u.toString());
+        return userStrings;
     }
 
-    public UserDTO getUser(int userId){
+    // for each User u in userNamesList, check if u.id equals id and return that User if it does
+    public String getUserByIdToString(int id){
+        for(User u : userNamesList)
+            if(u.id == id)
+                return u.toString();
         return null;
     }
 
-    public List<UserDTO> getUserList(){
+    public User getUserById(int id){
+        for(User u : userNamesList)
+            if(u.id == id)
+                return u;
         return null;
-    }
-
-    public void createUser(UserDTO user){
-
-    }
-
-    public void updateUser(UserDTO user){
-
-    }
-
-    public void deleteUser(int userId){
-
     }
 }

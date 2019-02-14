@@ -1,16 +1,16 @@
 package Presentation;
 
-import BusinessLogic.Funktionalitet;
+import BusinessLogic.UserObject;
 
 public class Presentation {
-    private Funktionalitet f;
+    private UserObject f;
 
-    public Presentation(Funktionalitet f) {
+    public Presentation(UserObject f) {
         this.f = f;
     }
 
     public void printAllUsers(){
-        for (String s : f.getNames()) {
+        for (String s : f.getAllUsersToString()) {
             System.out.println(s);
         }
     }
