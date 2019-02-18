@@ -43,13 +43,20 @@ public class TUI implements IUI {
         List<String> roles = new ArrayList<String>();
         roles.add("user"); //TODO implement scanner
 
+        boolean isIdValid;
         do {
             System.out.println("Write id:");
             userID = scanner.nextInt();
-            if (userID < 11 || userID > 99 ){
-                System.out.println("Wrong id format");
-            }
-        }while (userID < 11 || userID > 99);
+            isIdValid = userID > 10 && userID < 99;
+//            if (!isIdValid){
+//                System.out.println("Wrong id format");
+//        }
+
+
+            // validate with try og catch. If it goes to catch set boolean to true og run while loop.
+
+        }while (false);
+
 //|| !userController.isUserIdAvailable(userID)
         do {
             System.out.println("Write name");

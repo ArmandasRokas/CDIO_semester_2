@@ -3,6 +3,7 @@ package businesslogic;
 import data.dal.IUserDAO;
 import data.dto.UserDTO;
 
+import javax.xml.bind.ValidationException;
 import java.util.List;
 
 public class UserController implements IUserController {
@@ -20,6 +21,9 @@ public class UserController implements IUserController {
             // sout("Invalid user id")
             // return false;
 
+        if(userId < 11){
+            throw new IUserDAO.DALException("Wrong ID format. Exception");
+        }
 
         //generere ini
        // PasswordGenerator.generatePass();
