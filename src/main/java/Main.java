@@ -11,7 +11,7 @@ public class Main {
 
 
         IUserDAO userDAO = new UserDAO_arraylist();
-        IUserController userController = new UserController(userDAO);
+        UserController userController = new UserController(userDAO);
         IUI ui = new TUI(userController);
 
         ui.showMenu();
