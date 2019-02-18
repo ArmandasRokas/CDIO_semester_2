@@ -6,21 +6,12 @@ import java.util.Scanner;
 
 public class TUI implements IUI {
 
-
     private IUserController userController;
     private Scanner scanner;
 
     public TUI(IUserController userController) {
         this.userController = userController;
-
-        // Skal nok skrives om så TUI kun tager en scanner som parameter
-        // og ikke initiere den selv (for at undgå at TUI er en creator).
         scanner = new Scanner(System.in);
-    }
-
-
-    public void test(){
-
     }
 
     public void showMenu() {
@@ -39,9 +30,6 @@ public class TUI implements IUI {
                 break;
         }
     }
-
-    // Følgende metoder vil - når de er implementeret - kalde metoder
-    // i det underliggende lag.
 
     public void createUser() {
         int userID;
