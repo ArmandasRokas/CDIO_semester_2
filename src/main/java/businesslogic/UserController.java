@@ -95,4 +95,22 @@ public class UserController implements IUserController {
         //TODO implement method
         return null;
     }
+
+    public String generateIni(String name){
+        String[] splitNamesArr = name.split(" ");
+        String ini = "";
+
+        for( int i = 0 ; i < splitNamesArr.length ; i++) {
+            ini += splitNamesArr[i].charAt(0);
+        }
+
+        if(splitNamesArr.length > 4){
+            return splitNamesArr[0] + splitNamesArr[splitNamesArr.length - 1];
+        } else if (splitNamesArr.length < 2){
+            return ini.charAt(0) + ini.charAt(1) + "";
+        } else {
+            return ini;
+        }
+
+    }
 }
