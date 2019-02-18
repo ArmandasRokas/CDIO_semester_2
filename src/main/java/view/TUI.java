@@ -44,7 +44,7 @@ public class TUI implements IUI {
 
         do {
             userID = scanner.nextInt();
-        }while ((userID < 11 || userID > 99) && !userController.isUserIdAvailable(userID));
+        }while (userID < 11 || userID > 99 || !userController.isUserIdAvailable(userID));
 
         do {
             userName = scanner.nextLine();

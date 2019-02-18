@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UserDAO_arraylist implements IUserDAO {
 
-    public static List<UserDTO> users;
+    private List<UserDTO> users; // maybe public static?
 
     public UserDAO_arraylist(){
         users = new ArrayList<UserDTO>();
