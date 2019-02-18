@@ -10,8 +10,7 @@ public class Main {
         Presentation p = new Presentation(f); // TODO: Add interface for presentation
 
         // BEFORE PRINT
-        f.createUser("Armandas", 1990);
-
+        f.createUser(12, "Armandas", "AMD", "123456-7890", "test1234", "Administrator, Operator");
 
         // PRINT ALL USERS
         p.printAllUsers();

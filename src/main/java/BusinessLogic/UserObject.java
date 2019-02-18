@@ -12,12 +12,12 @@ public class UserObject {
         user = u;
     }
 
-    public void createUser(String name, int birthYear){
-        user.createUser(name, birthYear);
+    public void createUser(int userID, String userName, String ini, String cpr, String password, String roles){
+        user.createUser(userID, userName, ini, cpr, password, roles);
     }
 
-    public void updateUser(int id, String name, int birthYear){
-        user.updateUser(id, name, birthYear);
+    public void updateUser(int userID, String userName, String ini, String cpr, String password, String roles){
+        user.updateUser(userID, userName, ini, cpr, password, roles);
     }
 
     public void deleteUser(int id){

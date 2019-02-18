@@ -6,21 +6,30 @@ import java.util.Random;
 
 public class UserDAO implements IUserDAO {
     private class User {
-        int id;
-        String name;
-        int birthYear;
+        int userID;
+        String userName;
+        String ini;
+        String cpr;
+        String password;
+        String roles;
 
-        User(int id, String name, int birtyYear) {
-            this.id = id;
-            this.name = name;
-            this.birthYear = birtyYear;
+        User(int userID, String userName, String ini, String cpr, String password, String roles) {
+            this.userID = userID;
+            this.userName = userName;
+            this.ini = ini;
+            this.cpr = cpr;
+            this.password = password;
+            this.roles = roles;
         }
 
         @Override
         public String toString() {
-            return "id: " + id + "\n" +
-                    "name: " + name + "\n" +
-                    "birthYear: " + birthYear + "\n";
+            return "userID: " + userID + "\n" +
+                    "userName: " + userName + "\n" +
+                    "ini: " + ini + "\n" +
+                    "cpr: " + cpr + "\n" +
+                    "password: " + password + "\n" +
+                    "roles: " + roles + "\n";
         }
     }
 
@@ -28,7 +37,7 @@ public class UserDAO implements IUserDAO {
 
     public UserDAO() {
         userNamesList = new ArrayList<User>();
-        User u = new User(1, "Casper", randomInt(1950, 2005));
+        User u = new User(11, "Casper", "CH","123456-7890", "test1234", "Administrator, Operator");
         userNamesList.add(u);
     }
 
@@ -36,8 +45,8 @@ public class UserDAO implements IUserDAO {
         return new Random().nextInt((max - min) + 1) + min;
     }
 
-    public void createUser(int id, String name, int birthYear) {
-        userNamesList.add(new User(id, name, birthYear));
+    public void createUser(int userID, String userName, String ini, String cpr, String password, String roles) {
+        userNamesList.add(new User(userID, userName, ini, cpr, password, roles));
     }
 
     public void deleteUser(int id) {
@@ -45,10 +54,14 @@ public class UserDAO implements IUserDAO {
         userNamesList.remove(u);
     }
 
-    public void updateUser(int id, String name, int birthYear){
-        User u = getUserById(id);
-        u.name = name;
-        u.birthYear = birthYear;
+    public void updateUser(int userID, String userName, String ini, String cpr, String password, String roles){
+        User u = getUserById(userID);
+        u.userID = userID;
+        u.userName = userName;
+        u.ini = ini;
+        u.cpr = cpr;
+        u.password = password;
+        u.roles = roles;
     }
 
     public List<String> getAllUsersToString() {
@@ -61,14 +74,14 @@ public class UserDAO implements IUserDAO {
     // for each User u in userNamesList, check if u.id equals id and return that User if it does
     public String getUserByIdToString(int id){
         for(User u : userNamesList)
-            if(u.id == id)
+            if(u.userID == id)
                 return u.toString();
         return null;
     }
 
     public User getUserById(int id){
         for(User u : userNamesList)
-            if(u.id == id)
+            if(u.userID == id)
                 return u;
         return null;
     }

@@ -41,8 +41,8 @@ public class UserDTO implements Serializable, IUserDAO {
     }
 
     @Override
-    public void createUser(int id, String name, int birthYear) {
-        user.createUser(id, name, birthYear);
+    public void createUser(int userID, String userName, String ini, String cpr, String password, String roles) {
+        user.createUser(userID, userName, ini, cpr, password, roles);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class UserDTO implements Serializable, IUserDAO {
     }
 
     @Override
-    public void updateUser(int id, String name, int birthYear) {
-        user.updateUser(id, name, birthYear);
+    public void updateUser(int userID, String userName, String ini, String cpr, String password, String roles) {
+        user.updateUser(userID, userName, ini, cpr, password, roles);
     }
 }
