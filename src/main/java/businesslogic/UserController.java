@@ -41,8 +41,6 @@ public class UserController implements IUserController {
     }
 
 
-
-
     public List<UserDTO> getUserList(){
         try {
             return userDAO.getUserList();
@@ -75,6 +73,15 @@ public class UserController implements IUserController {
 
     }
 
+    public void deleteUser(int userId){
+        try {
+            userDAO.deleteUser(userId);
+        } catch (IUserDAO.DALException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public boolean isUserIdAvailable(int userId){
 
         try {
@@ -87,11 +94,5 @@ public class UserController implements IUserController {
             e.printStackTrace();
         }
         return true;
-    }
-
-    public void deleteUser(int userId){
-
-
-
     }
 }

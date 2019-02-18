@@ -45,5 +45,10 @@ public class UserDAO_arraylist implements IUserDAO {
 
     public void deleteUser(int userId) throws DALException {
 
+        for(int i = 0; i<users.size(); i++){
+            if(users.get(i).getUserId() == userId){
+                users.remove(i);
+            }
+        }
     }
 }
