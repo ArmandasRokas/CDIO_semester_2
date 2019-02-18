@@ -1,10 +1,10 @@
-package data.dao;
+package data.dal;
 
 import data.dto.UserDTO;
 
 import java.util.List;
 
-public class SQLUserDAO implements IUserDAO {
+public class UserDAO_sql implements IUserDAO {
     public UserDTO getUser(int userId) throws DALException {
         return null;
     }

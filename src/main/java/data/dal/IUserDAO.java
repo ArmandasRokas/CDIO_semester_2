@@ -1,4 +1,4 @@
-package data.dao; // Data access layer
+package data.dal; // Data access layer
 
 import data.dto.UserDTO;
 

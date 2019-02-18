@@ -1,15 +1,15 @@
-package data.dao;
+package data.dal;
 
 import data.dto.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListUserDAO implements IUserDAO {
+public class UserDAO_arraylist implements IUserDAO {
 
     public static List<UserDTO> users;
 
-    public ArrayListUserDAO(){
+    public UserDAO_arraylist(){
         users = new ArrayList<UserDTO>();
         users.add(new UserDTO());
         users.add(new UserDTO());
@@ -20,7 +20,6 @@ public class ArrayListUserDAO implements IUserDAO {
 
 
     public UserDTO getUser(int userId) throws DALException {
-
 
 
 

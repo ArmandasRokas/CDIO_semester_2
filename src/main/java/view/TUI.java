@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class TUI implements IUI {
 
 
-    IUserController userController;
+    private IUserController userController;
     private Scanner scanner;
 
     public TUI(IUserController userController) {

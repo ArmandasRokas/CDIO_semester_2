@@ -1,6 +1,6 @@
 //package test;
 //
-//import data.dao.IUserDAO;
+//import data.dal.IUserDAO;
 //import data.dto.UserDTO;
 //
 //public class DBTester {
