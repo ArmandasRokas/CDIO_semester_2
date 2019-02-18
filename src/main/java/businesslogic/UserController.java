@@ -2,7 +2,6 @@ package businesslogic;
 
 import data.dal.IUserDAO;
 import data.dto.UserDTO;
-import util.PasswordGenerator;
 
 import java.util.List;
 
@@ -92,5 +91,11 @@ public class UserController implements IUserController {
             e.printStackTrace();
         }
         return true;
+    }
+
+
+    public String generatePass(){
+        //TODO implement method
+        return null;
     }
 }
