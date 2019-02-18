@@ -47,6 +47,8 @@ public class TUI implements IUI {
         do {
             cpr = scanner.nextLine();
         }while (cpr.length() != 10);
+
+
     }
 
     public void listUsers() {
