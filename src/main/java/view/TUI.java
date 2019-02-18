@@ -1,15 +1,16 @@
 package view;
 
 import businesslogic.IUserController;
+import businesslogic.UserController;
 
 import java.util.Scanner;
 
 public class TUI implements IUI {
 
-    private IUserController userController;
+    private UserController userController;
     private Scanner scanner;
 
-    public TUI(IUserController userController) {
+    public TUI(UserController userController) {
         this.userController = userController;
         scanner = new Scanner(System.in);
     }
@@ -38,7 +39,7 @@ public class TUI implements IUI {
 
         do {
             userID = scanner.nextInt();
-        }while (userID < 11 || userID > 99);
+        }while ((userID < 11 || userID > 99) && !userController.isUserIdAvailable(userID));
 
         do {
             userName = scanner.nextLine();
