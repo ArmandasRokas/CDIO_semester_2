@@ -3,6 +3,8 @@ package businesslogic;
 import data.dal.IUserDAO;
 import data.dto.UserDTO;
 
+import java.util.List;
+
 public class UserController implements IUserController {
     // lignende metoder som DAO, men ogs[ noget ud over det.
 
@@ -12,7 +14,9 @@ public class UserController implements IUserController {
         this.userDAO = userDAO;
     }
 
-    public void createUser(String name, ){
+    public void createUser(int id, String name, List<String> roles, String cpr){
+
+
 
         // valideringer på navnet
 
