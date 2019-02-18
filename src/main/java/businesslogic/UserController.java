@@ -17,7 +17,10 @@ public class UserController implements IUserController {
 
     public void createUser(int userId, String name, String cpr, List<String> roles){
 
-        // validate ID, if it not exists
+        // validate ID, if it exists
+            // sout("Invalid user id")
+            // return false;
+
 
         //generere ini
        // PasswordGenerator.generatePass();
@@ -36,6 +39,8 @@ public class UserController implements IUserController {
         }
 
     }
+
+
 
 
     public List<UserDTO> getUserList(){
@@ -59,7 +64,34 @@ public class UserController implements IUserController {
 
     public void updateUser(int userId, String name, String cpr, List<String> roles){
 
+
+
         UserDTO user = new UserDTO(userId, name, "ganerated-ini", cpr, "generated-pass", roles);
+        try {
+            userDAO.updateUser(user);
+        } catch (IUserDAO.DALException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public boolean isUserIdAvailable(int userId){
+
+        try {
+            for(UserDTO user: userDAO.getUserList()){
+                if(user.getUserId() == userId){
+                    return false;
+                }
+            }
+        } catch (IUserDAO.DALException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public void deleteUser(int userId){
+
+
 
     }
 }
