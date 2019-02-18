@@ -57,9 +57,6 @@ public class UserController implements IUserController {
     }
 
     public void updateUser(int userId, String name, String cpr, List<String> roles){
-
-
-
         UserDTO user = new UserDTO(userId, name, "ganerated-ini", cpr, "generated-pass", roles);
         try {
             userDAO.updateUser(user);
