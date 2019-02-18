@@ -1,29 +1,23 @@
 package view;
 
 import businesslogic.IUserController;
+import businesslogic.UserController;
 
 import java.util.Scanner;
 
 public class TUI implements IUI {
 
-
-    private IUserController userController;
+    private UserController userController;
     private Scanner scanner;
 
-    public TUI(IUserController userController) {
+    public TUI(UserController userController) {
         this.userController = userController;
-
-        // Skal nok skrives om så TUI kun tager en scanner som parameter
-        // og ikke initiere den selv (for at undgå at TUI er en creator).
         scanner = new Scanner(System.in);
     }
 
-
-    public void test(){
-
-    }
-
     public void showMenu() {
+        System.out.println("1. Create User\n2. List Users\n3. Update User\n4. Delete User\n5. Exit Program");
+
         switch (scanner.nextInt()) {
             case 1: createUser();
                 break;
@@ -38,10 +32,23 @@ public class TUI implements IUI {
         }
     }
 
-    // Følgende metoder vil - når de er implementeret - kalde metoder
-    // i det underliggende lag.
-
     public void createUser() {
+        int userID;
+        String userName;
+        String cpr;
+
+        do {
+            userID = scanner.nextInt();
+        }while ((userID < 11 || userID > 99) && !userController.isUserIdAvailable(userID));
+
+        do {
+            userName = scanner.nextLine();
+        }while (userName.length() < 2 || userName.length() > 20);
+
+        do {
+            cpr = scanner.nextLine();
+        }while (cpr.length() != 10);
+
 
     }
 
