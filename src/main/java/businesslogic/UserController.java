@@ -14,9 +14,9 @@ public class UserController implements IUserController {
         this.userDAO = userDAO;
     }
 
-    public void createUser(int userId, String name, String cpr, List<String> roles){
+    public void createUser(int userId, String name, String cpr, List<String> roles) throws IUserDAO.DALException {
 
-        // validate ID, if it exists
+                // validate ID, if it exists
             // sout("Invalid user id")
             // return false;
 
@@ -28,11 +28,11 @@ public class UserController implements IUserController {
 
         UserDTO user = new UserDTO(userId, name, "ganerated-ini", cpr, "generated-pass", roles);
 
-        try {
+      //  try {
             userDAO.createUser(user);
-        } catch (IUserDAO.DALException e) {
-            e.printStackTrace();
-        }
+      //  } catch (IUserDAO.DALException e) {
+     //       e.printStackTrace();
+    //    }
 
     }
 

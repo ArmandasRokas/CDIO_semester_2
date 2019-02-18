@@ -2,6 +2,7 @@ package view;
 
 import businesslogic.IUserController;
 import businesslogic.UserController;
+import data.dal.IUserDAO;
 import data.dto.UserDTO;
 
 import java.util.ArrayList;
@@ -43,18 +44,29 @@ public class TUI implements IUI {
         roles.add("user"); //TODO implement scanner
 
         do {
+            System.out.println("Write id:");
             userID = scanner.nextInt();
-        }while (userID < 11 || userID > 99 || !userController.isUserIdAvailable(userID));
-
+            if (userID < 11 || userID > 99 ){
+                System.out.println("Wrong id format");
+            }
+        }while (userID < 11 || userID > 99);
+//|| !userController.isUserIdAvailable(userID)
         do {
+            System.out.println("Write name");
             userName = scanner.nextLine();
         }while (userName.length() < 2 || userName.length() > 20);
 
         do {
+            System.out.println("Write cpr");
             cpr = scanner.nextLine();
         }while (cpr.length() != 10);
 
-        userController.createUser(userID, userName, cpr, roles);
+        try {
+            userController.createUser(userID, userName, cpr, roles);
+        } catch (IUserDAO.DALException e) {
+            System.err.println(e.getMessage());
+            createUser();
+        }
 
     }
 

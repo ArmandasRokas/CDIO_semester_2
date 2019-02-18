@@ -11,6 +11,7 @@ public class UserDAO_arraylist implements IUserDAO {
 
     public UserDAO_arraylist(){
         users = new ArrayList<UserDTO>();
+        users.add(new UserDTO(12,"John","j.p", "123456780", "13245,", null));
     }
 
 
@@ -20,8 +21,12 @@ public class UserDAO_arraylist implements IUserDAO {
             if(userDTO.getUserId() == userId){
                 return userDTO;
             }
+
         }
+
         return null; //TODO ask where to handle null. Controller? DAL? TUI?
+                //TODO throws execption here for nor=t userID found.
+
     }
 
     public List<UserDTO> getUserList() throws DALException {
@@ -31,6 +36,13 @@ public class UserDAO_arraylist implements IUserDAO {
 
 
     public void createUser(UserDTO user) throws DALException {
+
+
+        for(UserDTO userDTO: users){
+            if(userDTO.getUserId() == user.getUserId()){
+                throw new DALException("User id already exists. ");
+            }
+        }
         users.add(user);
     }
 
