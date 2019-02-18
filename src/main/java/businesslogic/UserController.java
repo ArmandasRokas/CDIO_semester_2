@@ -29,9 +29,6 @@ public class UserController implements IUserController {
 
         UserDTO user = new UserDTO(userId, name, "ganerated-ini", cpr, "generated-pass", roles);
 
-
-        // valideringer på navnet
-
         try {
             userDAO.createUser(user);
         } catch (IUserDAO.DALException e) {
@@ -87,6 +84,7 @@ public class UserController implements IUserController {
         try {
             for(UserDTO user: userDAO.getUserList()){
                 if(user.getUserId() == userId){
+                    System.out.println("User id already exists");
                     return false;
                 }
             }
