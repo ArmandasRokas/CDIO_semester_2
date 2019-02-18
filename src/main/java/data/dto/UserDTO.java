@@ -10,11 +10,22 @@ public class UserDTO implements Serializable {
     private int	userId;
     private String userName;
     private String ini;
+    private String cpr;
+    private String password;
     private List<String> roles;
-    //TODO Add relevant fields
 
     public UserDTO() {
         this.roles = new ArrayList<String>();
+    }
+
+
+    public UserDTO(int userId, String userName, String ini, String cpr, String password, List<String> roles) {
+        this.userId = userId;
+        this.userName = userName;
+        this.ini = ini;
+        this.cpr = cpr;
+        this.password = password;
+        this.roles = roles;
     }
 
     public int getUserId() {
@@ -59,5 +70,7 @@ public class UserDTO implements Serializable {
     public String toString() {
         return "UserDTO [userId=" + userId + ", userName=" + userName + ", ini=" + ini + ", roles=" + roles + "]";
     }
+
+
 
 }

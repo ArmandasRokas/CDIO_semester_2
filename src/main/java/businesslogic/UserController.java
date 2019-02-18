@@ -2,6 +2,7 @@ package businesslogic;
 
 import data.dal.IUserDAO;
 import data.dto.UserDTO;
+import util.PasswordGenerator;
 
 import java.util.List;
 
@@ -18,6 +19,16 @@ public class UserController implements IUserController {
 
 
 
+
+        //generere ini
+       // PasswordGenerator.generatePass();
+        // generare pass
+
+
+        UserDTO user = new UserDTO();
+        user.setUserId(id);
+        user.setUserName(name);
+
         // valideringer på navnet
 
         try {
@@ -27,4 +38,9 @@ public class UserController implements IUserController {
         }
 
     }
+
+
+
+
+
 }
