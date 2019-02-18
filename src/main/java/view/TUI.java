@@ -2,7 +2,10 @@ package view;
 
 import businesslogic.IUserController;
 import businesslogic.UserController;
+import data.dto.UserDTO;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TUI implements IUI {
@@ -36,6 +39,8 @@ public class TUI implements IUI {
         int userID;
         String userName;
         String cpr;
+        List<String> roles = new ArrayList<String>();
+        roles.add("user"); //TODO implement scanner
 
         do {
             userID = scanner.nextInt();
@@ -49,10 +54,15 @@ public class TUI implements IUI {
             cpr = scanner.nextLine();
         }while (cpr.length() != 10);
 
+        userController.createUser(userID, userName, cpr, roles);
 
     }
 
     public void listUsers() {
+
+        for(UserDTO user: userController.getUserList()){
+            System.out.println(user.toString());
+        }
 
     }
 

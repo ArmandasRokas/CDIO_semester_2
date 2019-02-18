@@ -14,7 +14,10 @@ public class Main {
         UserController userController = new UserController(userDAO);
         IUI ui = new TUI(userController);
 
-        ui.showMenu();
+        while(true){
+
+            ui.showMenu();
+        }
 
     }
 }
