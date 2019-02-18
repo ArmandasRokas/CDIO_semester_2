@@ -15,24 +15,22 @@ public class UserController implements IUserController {
         this.userDAO = userDAO;
     }
 
-    public void createUser(int id, String name, List<String> roles, String cpr){
+    public void createUser(int userId, String name, String cpr, List<String> roles){
 
-
-
+        // validate ID, if it not exists
 
         //generere ini
        // PasswordGenerator.generatePass();
         // generare pass
 
 
-        UserDTO user = new UserDTO();
-        user.setUserId(id);
-        user.setUserName(name);
+        UserDTO user = new UserDTO(userId, name, "ganerated-ini", cpr, "generated-pass", roles);
+
 
         // valideringer på navnet
 
         try {
-            userDAO.createUser(new UserDTO());
+            userDAO.createUser(user);
         } catch (IUserDAO.DALException e) {
             e.printStackTrace();
         }
@@ -40,7 +38,28 @@ public class UserController implements IUserController {
     }
 
 
+    public List<UserDTO> getUserList(){
+        try {
+            return userDAO.getUserList();
+        } catch (IUserDAO.DALException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public UserDTO getUser(int userId){
 
+        try {
+            return userDAO.getUser(userId);
+        } catch (IUserDAO.DALException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public void updateUser(int userId, String name, String cpr, List<String> roles){
+
+        UserDTO user = new UserDTO(userId, name, "ganerated-ini", cpr, "generated-pass", roles);
+
+    }
 }

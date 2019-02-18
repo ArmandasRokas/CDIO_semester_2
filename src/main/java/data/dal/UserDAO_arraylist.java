@@ -11,31 +11,36 @@ public class UserDAO_arraylist implements IUserDAO {
 
     public UserDAO_arraylist(){
         users = new ArrayList<UserDTO>();
-        users.add(new UserDTO());
-        users.add(new UserDTO());
-        users.add(new UserDTO());
-        users.add(new UserDTO());
-
     }
 
 
     public UserDTO getUser(int userId) throws DALException {
 
-
-
-        return null;
+        for(UserDTO userDTO: users){
+            if(userDTO.getUserId() == userId){
+                return userDTO;
+            }
+        }
+        return null; //TODO ask where to handle null. Controller? DAL? TUI?
     }
 
     public List<UserDTO> getUserList() throws DALException {
         return users;
     }
 
-    public void createUser(UserDTO user) throws DALException {
 
+
+    public void createUser(UserDTO user) throws DALException {
+        users.add(user);
     }
 
     public void updateUser(UserDTO user) throws DALException {
 
+        for(int i = 0; i < users.size(); i++){
+            if(users.get(i).getUserId() == user.getUserId()){
+                users.set(i, user);
+            }
+        }
     }
 
     public void deleteUser(int userId) throws DALException {
