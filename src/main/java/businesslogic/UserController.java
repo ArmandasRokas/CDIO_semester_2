@@ -15,14 +15,14 @@ public class UserController implements IUserController {
         this.userDAO = userDAO;
     }
 
-    public void createUser(int userId, String name, String cpr, List<String> roles) throws IUserDAO.DALException {
+    public void createUser(int userId, String name, String cpr, List<String> roles) throws IUserDAO.DALException, IllegalArgumentException {
 
                 // validate ID, if it exists
             // sout("Invalid user id")
             // return false;
 
-        if(userId < 11){
-            throw new IUserDAO.DALException("Wrong ID format. Exception");
+        if(userId < 11 || userId > 99){
+            throw new IllegalArgumentException("Wrong id. It should be between 11 and 99");
         }
 
         //generere ini
