@@ -4,6 +4,7 @@ import data.dal.IUserDAO;
 import data.dto.UserDTO;
 
 import java.util.List;
+import java.util.Random;
 
 public class UserController implements IUserController {
     // lignende metoder som DAO, men ogs[ noget ud over det.
@@ -93,7 +94,24 @@ public class UserController implements IUserController {
 
     public String generatePass(){
         //TODO implement method
-        return null;
+        String password= "";
+        int number = 0;
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < 4; j++){
+            number = (random.nextInt()*25+65);
+            sb.append(Character.toString((char)number));
+        }
+        for (int i = 0; i < 3; i++ ){
+            number = (random.nextInt()*10+48);
+            sb.append(Character.toString((char)number));
+        }
+        for (int k = 0; k < 4; k++){
+            number = (random.nextInt()*25+97);
+            sb.append(Character.toString((char)number));
+        }
+        password = sb.toString();
+        return password;
     }
 
     public String generateIni(String name){
