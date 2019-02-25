@@ -93,7 +93,7 @@ public class TUI implements IUI {
             if (userID < 11 || userID > 99){
                 System.out.println("Wrong id format");
             }
-        }while (!userController.isUserIdAvailable(userID));
+        }while (userController.isUserIdAvailable(userID));
         do {
             System.out.println("Write name");
             userName = scanner.nextLine();
@@ -104,10 +104,16 @@ public class TUI implements IUI {
             cpr = scanner.nextLine();
         }while (cpr.length() != 10);
 
-        while (scanner.hasNext()){
+        do {
+            System.out.println("Add role? y/n");
+            String yesNo = scanner.nextLine();
+            if(yesNo.toLowerCase().equals("n")){
+                break;
+            }
+            System.out.println("Write the role");
             role = scanner.nextLine();
             roles.add(role);
-        }
+        }while (scanner.hasNext());
 
         userController.updateUser(userID, userName, cpr, roles);
     }
