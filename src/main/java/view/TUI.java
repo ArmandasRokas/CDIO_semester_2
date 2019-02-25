@@ -1,6 +1,5 @@
 package view;
 
-import businesslogic.IUserController;
 import businesslogic.UserController;
 import data.dal.IUserDAO;
 import data.dto.UserDTO;
@@ -49,7 +48,7 @@ public class TUI implements IUI {
             if (userID < 11 || userID > 99){
                 System.out.println("Wrong id format");
             }
-        }while (!userController.isUserIdAvailable(userID) && runIt);
+        }while (userController.doesUserIdExist(userID) && runIt);
         do {
             System.out.println("Write name");
             userName = scanner.nextLine();
@@ -105,7 +104,8 @@ public class TUI implements IUI {
             if (userID < 11 || userID > 99){
                 System.out.println("Wrong id format");
             }
-        }while (!userController.isUserIdAvailable(userID));
+            System.out.println(userController.doesUserIdExist(userID));
+        }while (!userController.doesUserIdExist(userID));
 
         userController.deleteUser(userID);
     }

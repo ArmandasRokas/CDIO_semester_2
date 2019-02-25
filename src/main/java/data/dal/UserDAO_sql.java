@@ -106,11 +106,10 @@ public class UserDAO_sql implements IUserDAO {
             pStmt.setString(5, user.getPassword());
             pStmt.executeUpdate();
 
-
-            PreparedStatement pStmt2 = connection.prepareStatement("INSERT INTO roles_cdio VALUES(?,?,?)");
+            PreparedStatement pStmt2 = connection.prepareStatement("INSERT INTO roles_cdio (user_id, role) VALUES(?,?)");
             for(String role: user.getRoles()){
-                pStmt2.setInt(2,user.getUserId());
-                pStmt2.setString(3, role);
+                pStmt2.setInt(1,user.getUserId());
+                pStmt2.setString(2, role);
                 pStmt2.executeUpdate();
             }
 

@@ -65,18 +65,18 @@ public class UserController implements IUserController {
 
     }
 
-    public boolean isUserIdAvailable(int userId){
+    public boolean doesUserIdExist(int userId){
         try {
             for(UserDTO user: userDAO.getUserList()){
                 if(user.getUserId() == userId){
                     System.out.println("User id already exists");
-                    return false;
+                    return true;
                 }
             }
         } catch (IUserDAO.DALException e) {
             e.printStackTrace();
         }
-        return true;
+        return false;
     }
 
 
