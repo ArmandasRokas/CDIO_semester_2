@@ -29,6 +29,7 @@
 ## Supplerende specifikationer
 
 ### User interface
+* Systemet skal implementeres med tekstbaseret brugergrænseflade (TUI) 
 
 ### Hardware
 * Systemet skal kunne køres på maskinerne i DTU’s databarer
