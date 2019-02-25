@@ -72,5 +72,19 @@ public class UserDTO implements Serializable {
     }
 
 
+    public String getCpr() {
+        return cpr;
+    }
 
+    public void setCpr(String cpr){
+        this.cpr = cpr;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String pass){
+        password = pass;
+    }
 }
