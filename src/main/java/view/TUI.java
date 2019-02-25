@@ -49,7 +49,7 @@ public class TUI implements IUI {
             if (userID < 11 || userID > 99){
                 System.out.println("Wrong id format");
             }
-        }while (userController.isUserIdAvailable(userID) && !runIt);
+        }while (!userController.isUserIdAvailable(userID) && runIt);
         do {
             System.out.println("Write name");
             userName = scanner.nextLine();
