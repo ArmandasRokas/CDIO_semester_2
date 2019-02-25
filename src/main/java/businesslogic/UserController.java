@@ -15,17 +15,6 @@ public class UserController implements IUserController {
     }
 
     public void createUser(int userId, String name, String cpr, List<String> roles) throws IUserDAO.DALException {
-
-                // validate ID, if it exists
-            // sout("Invalid user id")
-            // return false;
-
-
-        //generere ini
-       // PasswordGenerator.generatePass();
-        // generare pass
-
-
         UserDTO user = new UserDTO(userId, name, generateIni(name), cpr, "generated-pass", roles);
 
         try {
@@ -77,7 +66,6 @@ public class UserController implements IUserController {
     }
 
     public boolean isUserIdAvailable(int userId){
-
         try {
             for(UserDTO user: userDAO.getUserList()){
                 if(user.getUserId() == userId){
