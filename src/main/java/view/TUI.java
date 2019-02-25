@@ -42,7 +42,6 @@ public class TUI implements IUI {
         String cpr;
         String role;
         List<String> roles = new ArrayList<String>();
-        roles.add("user"); //TODO implement scanner
 
         do {
             System.out.println("Write id:");
