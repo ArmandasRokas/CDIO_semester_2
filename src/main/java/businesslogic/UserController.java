@@ -28,11 +28,11 @@ public class UserController implements IUserController {
 
         UserDTO user = new UserDTO(userId, name, generateIni(name), cpr, "generated-pass", roles);
 
-      //  try {
+        try {
             userDAO.createUser(user);
-      //  } catch (IUserDAO.DALException e) {
-     //       e.printStackTrace();
-    //    }
+        } catch (IUserDAO.DALException e) {
+            e.printStackTrace();
+        }
 
     }
 

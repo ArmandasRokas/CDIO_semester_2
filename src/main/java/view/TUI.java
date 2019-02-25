@@ -42,14 +42,14 @@ public class TUI implements IUI {
         }
     }
 
-    public void runConsole(){
+    public void runConsole(boolean runIt){
         do {
-            System.out.println("Enter ID of user to be updated: ");
+            System.out.println("Enter ID of user: ");
             userID = scanner.nextInt();
             if (userID < 11 || userID > 99){
                 System.out.println("Wrong id format");
             }
-        }while (userController.isUserIdAvailable(userID));
+        }while (userController.isUserIdAvailable(userID) && !runIt);
         do {
             System.out.println("Write name");
             userName = scanner.nextLine();
@@ -74,7 +74,7 @@ public class TUI implements IUI {
     }
 
     public void createUser() {
-        runConsole();
+        runConsole(true);
 
         try {
             userController.createUser(userID, userName, cpr, roles);
@@ -85,7 +85,7 @@ public class TUI implements IUI {
     }
 
     public void updateUser() {
-        runConsole();
+        runConsole(false);
 
         userController.updateUser(userID, userName, cpr, roles);
     }
