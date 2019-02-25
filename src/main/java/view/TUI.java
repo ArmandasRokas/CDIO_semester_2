@@ -40,17 +40,17 @@ public class TUI implements IUI {
         int userID;
         String userName;
         String cpr;
+        String role;
         List<String> roles = new ArrayList<String>();
-        roles.add("user"); //TODO implement scanner
 
         do {
             System.out.println("Write id:");
             userID = scanner.nextInt();
-            if (userID < 11 || userID > 99 ){
+            if (userID < 11 || userID > 99){
                 System.out.println("Wrong id format");
             }
-        }while (userID < 11 || userID > 99);
-//|| !userController.isUserIdAvailable(userID)
+        }while (!userController.isUserIdAvailable(userID));
+
         do {
             System.out.println("Write name");
             userName = scanner.nextLine();
@@ -61,13 +61,17 @@ public class TUI implements IUI {
             cpr = scanner.nextLine();
         }while (cpr.length() != 10);
 
+        while (scanner.hasNext()){
+            role = scanner.nextLine();
+            roles.add(role);
+        }
+
         try {
             userController.createUser(userID, userName, cpr, roles);
         } catch (IUserDAO.DALException e) {
             System.err.println(e.getMessage());
             createUser();
         }
-
     }
 
     public void listUsers() {
@@ -77,11 +81,49 @@ public class TUI implements IUI {
     }
 
     public void updateUser() {
+        int userID;
+        String userName;
+        String cpr;
+        String role;
+        List<String> roles = new ArrayList<String>();
 
+        do {
+            System.out.println("Enter ID of user to be updated: ");
+            userID = scanner.nextInt();
+            if (userID < 11 || userID > 99){
+                System.out.println("Wrong id format");
+            }
+        }while (!userController.isUserIdAvailable(userID));
+        do {
+            System.out.println("Write name");
+            userName = scanner.nextLine();
+        }while (userName.length() < 2 || userName.length() > 20);
+
+        do {
+            System.out.println("Write cpr");
+            cpr = scanner.nextLine();
+        }while (cpr.length() != 10);
+
+        while (scanner.hasNext()){
+            role = scanner.nextLine();
+            roles.add(role);
+        }
+
+        userController.updateUser(userID, userName, cpr, roles);
     }
 
     public void deleteUser() {
+        int userID;
 
+        do {
+            System.out.println("Enter ID of user to be deleted: ");
+            userID = scanner.nextInt();
+            if (userID < 11 || userID > 99){
+                System.out.println("Wrong id format");
+            }
+        }while (!userController.isUserIdAvailable(userID));
+
+        userController.deleteUser(userID);
     }
 
     public void exitProgram() {
