@@ -121,7 +121,7 @@ public class UserDAO_sql implements IUserDAO {
 
     @Override
     public void updateUser(UserDTO user) throws DALException {
-
+        //
     }
 
     @Override
