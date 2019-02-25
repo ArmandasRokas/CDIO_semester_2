@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>310</y>
+      <w>80</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>users
+--
+_user_id_
+userName
+ini
+cpr
+password
+active
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>340</y>
+      <w>80</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>roles
+--
+_roles_id_
+user_id
+role
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>330</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;60.0;110.0;60.0</additional_attributes>
+  </element>
+</diagram>
