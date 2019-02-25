@@ -121,7 +121,30 @@ public class UserDAO_sql implements IUserDAO {
 
     @Override
     public void updateUser(UserDTO user) throws DALException {
-        //
+        try(Connection connection = DriverManager.getConnection(url + userName +"&"+ pass)){   // med det syntax behøver man ikke lave final og connection.close()
+            String sqlStatement = "UPDATE users_cdio SET userName = ?, ini = ?, cpr = ?, password = ? WHERE " + user.getUserId();
+            PreparedStatement pStmt = connection.prepareStatement(sqlStatement);
+
+            pStmt.setString(1, user.getUserName());
+            pStmt.setString(2, user.getIni());
+            pStmt.setString(3, user.getCpr());
+            pStmt.setString(4, user.getPassword());
+            pStmt.executeUpdate();
+
+            String sqlStatement1 = "DELETE role FROM roles_cdio WHERE user_id = " + user.getUserId();
+            PreparedStatement pStmt1 = connection.prepareStatement(sqlStatement1);
+            pStmt1.executeUpdate();
+
+            PreparedStatement pStmt2 = connection.prepareStatement("INSERT INTO roles_cdio VALUES(?,?)");
+            for(String role: user.getRoles()){
+                pStmt2.setInt(1, user.getUserId());
+                pStmt2.setString(2, role);
+                pStmt2.executeUpdate();
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
