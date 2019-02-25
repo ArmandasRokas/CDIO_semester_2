@@ -54,6 +54,42 @@ public class UserDAO_sql implements IUserDAO {
     @Override
     public List<UserDTO> getUserList() throws DALException {
         List<UserDTO> users = new ArrayList<>();
+        UserDTO user = null;
+        // closes itself if something fails
+        try(Connection connection = DriverManager.getConnection(url + userName + "&" + pass)){
+            // get all users
+            PreparedStatement pStmt = connection.prepareStatement(
+                    "SELECT * FROM users_cdio");
+            ResultSet resultSet = pStmt.executeQuery();
+
+            while(resultSet.next()){
+                // set user object equal to results from database
+                user = new UserDTO();
+                user.setUserId(resultSet.getInt(1));
+                user.setUserName(resultSet.getString(2));
+                user.setIni(resultSet.getString(3));
+                user.setCpr(resultSet.getString(4));
+                user.setPassword(resultSet.getString(5));
+
+                // get all roles by user id
+                PreparedStatement pStmt1 = connection.prepareStatement(
+                        "SELECT role FROM roles_cdio WHERE user_id = ?");
+                pStmt1.setInt(1, user.getUserId());
+                ResultSet resultSet1 = pStmt1.executeQuery();
+
+                ArrayList<String> roles = new ArrayList<>();
+                while(resultSet1.next()){
+                    roles.add(resultSet1.getString(1));
+                }
+                user.setRoles(roles);
+
+                // add user to users list
+                users.add(user);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
         return users;
     }
 
@@ -77,7 +113,6 @@ public class UserDAO_sql implements IUserDAO {
                 pStmt2.setString(2, role);
                 pStmt2.executeUpdate();
             }
-
 
         } catch (SQLException e){
             e.printStackTrace();

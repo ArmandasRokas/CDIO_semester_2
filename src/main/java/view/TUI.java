@@ -71,12 +71,9 @@ public class TUI implements IUI {
     }
 
     public void listUsers() {
-
-        /*(UserDTO user: userController.getUserList()){
+        for(UserDTO user: userController.getUserList()){
             System.out.println(user.toString());
-        }*/
-        System.out.println(userController.getUser(11));
-
+        }
     }
 
     public void updateUser() {
