@@ -88,6 +88,6 @@ public class TUI implements IUI {
     }
 
     public void exitProgram() {
-
+        System.exit(0);
     }
 }

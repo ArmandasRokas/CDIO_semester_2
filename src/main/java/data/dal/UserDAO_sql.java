@@ -48,8 +48,6 @@ public class UserDAO_sql implements IUserDAO {
             e.printStackTrace();
 
         }
-
-
         return user;
     }
 
