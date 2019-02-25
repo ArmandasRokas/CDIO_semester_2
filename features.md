@@ -6,39 +6,30 @@
 
 | Krav Id | Beskrivelse | Status  | 
 | ------------- | ----|------------- |
-| K1 | Systemet skal opret bruger | ikke begyndt  |
-| K2 | Systemet skal vis brugere | ikke begyndt |
-| K3 | Systemet skal update bruger | ikke begyndt |
-| K4 | Systemet skal slet bruger | ikke begyndt |
-| K5 | Systemet skal tildele en kodeord, som genereres automatisk| ikke begyndt |
-| K6 | Systemet skal have flere brugertyper | ikke begyndt |
-| K7 | Systemet skal persistent data i en tekstfil | ikke begyndt |
+| K1 | Systemet skal opret bruger | :white_check_mark:  |
+| K2 | Systemet skal vis brugere | :white_check_mark: |
+| K3 | Systemet skal update bruger | :white_check_mark: |
+| K4 | Systemet skal slet bruger | :white_check_mark: |
+| K5 | Systemet skal tildele en kodeord, som genereres automatisk| :white_check_mark: |
+| K6 | Systemet skal have flere brugertyper | :white_check_mark: |
 
 
-
-
-:white_check_mark:
 ### Should have 
 
 | Krav Id | Beskrivelse | Status  | 
 | ------------- | ------------- |------------- |
-| K21 | Systemet skal persistent data i en database  |not started  |
-
-
-
-### Could have
-| Krav Id | Beskrivelse | Status  | 
-| ------------- | ------------- |------------- |
+| K21 | Systemet skal persistent data i en database  |:white_check_mark: |
 
 ### Wont have
 | Krav Id | Beskrivelse | Status  | 
 | ------------- | ------------- |------------- |
+| K7 | Systemet skal persistent data i en tekstfil | ikke begyndt |
 
 
 ## Supplerende specifikationer
 
 ### User interface
-
+* Systemet skal implementeres med tekstbaseret brugergrænseflade (TUI) 
 
 ### Hardware
 * Systemet skal kunne køres på maskinerne i DTU’s databarer
