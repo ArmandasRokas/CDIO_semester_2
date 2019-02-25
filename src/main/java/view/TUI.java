@@ -110,10 +110,11 @@ public class TUI implements IUI {
             if(yesNo.toLowerCase().equals("n")){
                 break;
             }
+            yesNo = "";
             System.out.println("Write the role");
             role = scanner.nextLine();
             roles.add(role);
-        }while (scanner.hasNext());
+        }while (true);
 
         userController.updateUser(userID, userName, cpr, roles);
     }

@@ -59,6 +59,7 @@ public class UserController implements IUserController {
     public void updateUser(int userId, String name, String cpr, List<String> roles){
         UserDTO user = new UserDTO(userId, name, "ganerated-ini", cpr, "generated-pass", roles);
         try {
+            user.setIni(generateIni(user.getUserName()));
             userDAO.updateUser(user);
         } catch (IUserDAO.DALException e) {
             e.printStackTrace();
@@ -104,18 +105,26 @@ public class UserController implements IUserController {
         //Hvis der er "  " mere end et 'space' vil der oprettes tomme elementer, og de skal sorteres fra.
 
         for( int i = 0 ; i < splitNamesArr.length ; i++) {
+            System.out.println(splitNamesArr[i]);
             ini += splitNamesArr[i].charAt(0);
         }
 
         //If more than 4 names in total, including first name, last name and middle names,
         // the initial from first name and last name is generated.
-        if(splitNamesArr.length > 4){
+        // TODO: fix it (does not work)
+        /*if(splitNamesArr.length >= 4){
             return splitNamesArr[0].substring(0,1) + splitNamesArr[splitNamesArr.length - 1].substring(0,1);
-        } else if (splitNamesArr.length < 2){ //if only one name is given, the first to characters is generated as initials.
-            return ini.substring(0,1) + ini.substring(1,2);
-        } else {
-            return ini;
+        } else if(splitNamesArr.length == 3){
+            return ini.substring(0,3);
         }
-
+        else if (splitNamesArr.length == 2){ //if only one name is given, the first to characters is generated as initials.
+            return ini.substring(0,2);
+        } else if (splitNamesArr.length == 1){
+            return ini.substring(0,1);
+        }
+        else {
+            return ini;
+        }*/
+        return null;
     }
 }
